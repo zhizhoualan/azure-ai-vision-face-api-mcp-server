@@ -31,7 +31,7 @@ git clone https://github.com/Azure-Samples/azure-ai-vision-face-api-mcp-server.g
 - You will be prompted to enter the following environment variables the first time you start the MCP server:
   - `Azure OpenAI Endpoint`: The endpoint URL of your Azure OpenAI deployment.
   - `Azure OpenAI API Key`: The API key for your Azure OpenAI resource.
-- For more details about using , see the [Azure OpenAI documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/overview).
+- For more details about using Azure OpenAI, see the [Azure OpenAI documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/overview).
 
 #### 5. (Optional) Configure Azure Storage for Image Management
 - To enable image management and access, you need an Azure Storage account.
@@ -61,6 +61,7 @@ git clone https://github.com/Azure-Samples/azure-ai-vision-face-api-mcp-server.g
   - GET /health → { ok: true }
   - GET /mcp/tools → list available MCP tools
   - POST /mcp/call → call a tool by name with arguments
+
 **Usage**
   ```bash
   # Setup
