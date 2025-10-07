@@ -1,8 +1,11 @@
 import os
 import pathlib
+import sys
 import pytest
 import ast
 from pprint import pprint
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
 from prompt_utils.prompt_dispatch import dispatch_prompt_detect
 
@@ -90,6 +93,7 @@ def test_live_detect_mask_or_glasses_from_prompt_local(monkeypatch):
     print("Mask:", attrs["mask"])
 
 
+@LIVE
 def test_live_detect_mask_or_glasses_from_prompt_url(monkeypatch):
     # Use a public image URL with faces, mask or glasses for testing
     image_url = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg"
