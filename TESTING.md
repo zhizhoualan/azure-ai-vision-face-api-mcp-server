@@ -123,7 +123,7 @@ The GitHub Actions CI pipeline (`.github/workflows/ci.yml`) automatically:
    - Runs on Python 3.10, 3.11, and 3.12
    - Installs all dependencies
    - Runs unit tests (always pass)
-   - Attempts integration tests (skip if no credentials)
+   - Runs integration tests if credentials are configured (skip if no credentials)
 
 2. **Lint Job**:
    - Runs ruff to check code quality
@@ -134,6 +134,29 @@ The GitHub Actions CI pipeline (`.github/workflows/ci.yml`) automatically:
 The CI pipeline runs on:
 - Push to `main` or `develop` branches
 - Pull requests targeting `main` or `develop` branches
+
+### Configuring CI Credentials
+
+To enable integration tests in CI, configure the following GitHub Secrets in your repository settings:
+
+**Required for live tests:**
+- `AZURE_FACE_ENDPOINT` - Your Azure Face API endpoint URL
+- `AZURE_FACE_API_KEY` - Your Azure Face API key
+
+**Optional (for additional features):**
+- `AZURE_OPENAI_ENDPOINT` - Azure OpenAI endpoint for open-set attribute detection
+- `AZURE_OPENAI_API_KEY` - Azure OpenAI API key
+- `AZURE_STORAGE_ACCOUNT` - Azure Storage account name
+- `AZURE_STORAGE_CONTAINER` - Azure Storage container name
+- `AZURE_STORAGE_SAS_TOKEN` - Azure Storage SAS token
+
+To add secrets:
+1. Go to your repository on GitHub
+2. Click **Settings** → **Secrets and variables** → **Actions**
+3. Click **New repository secret**
+4. Add each secret with its corresponding value
+
+When these secrets are configured, the CI pipeline will run the integration tests instead of skipping them.
 
 ## Test Coverage Summary
 
