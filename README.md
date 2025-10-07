@@ -52,7 +52,44 @@ git clone https://github.com/Azure-Samples/azure-ai-vision-face-api-mcp-server.g
 - Before running pytest or other scripts outside of MCP, copy `.env.example` to `.env`.
 - Fill in your real keys in `.env`. These keys are the same as those used in `.vscode/mcp.json`.
 
-#### 8. (Optional) MCP HTTP Bridge (Node/TypeScript)
+#### 8. Running Tests
+
+This project includes comprehensive tests that cover both unit tests (no credentials required) and integration tests (require Azure credentials).
+
+**Running All Tests:**
+```bash
+# Install dependencies
+pip install pytest python-dotenv azure-ai-vision-face fastmcp openai opencv-python azure-storage-blob
+
+# Run all tests
+pytest
+
+# Run with verbose output
+pytest -v
+```
+
+**Running Only Unit Tests (No Azure Credentials Required):**
+```bash
+# Run unit tests that don't require Azure credentials
+pytest tests/test_prompt_parser.py -v
+```
+
+**Running Integration Tests (Requires Azure Credentials):**
+```bash
+# Set environment variables in .env file (see step 7)
+# Then run integration tests
+pytest tests/test_prompt_live_*.py -v
+```
+
+**Test Categories:**
+- `test_prompt_parser.py`: Unit tests for prompt parsing functions (19 tests)
+- `test_prompt_live_*.py`: Integration tests that require Azure Face API credentials (8 tests)
+
+**Continuous Integration:**
+- The CI pipeline automatically runs all unit tests on Python 3.10, 3.11, and 3.12
+- Integration tests are skipped in CI unless Azure credentials are provided as secrets
+
+#### 9. (Optional) MCP HTTP Bridge (Node/TypeScript)
 
 - This repo includes a small **HTTP bridge** in the `bridge/` folder.
 - The bridge launches the local **Azure Face MCP server** (via `uvx --from …`) using stdio and exposes a REST API for listing and calling MCP tools.
