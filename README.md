@@ -1,4 +1,7 @@
 # Azure AI Vision Face API MCP Server
+
+[![CI](https://github.com/zhizhoualan/azure-ai-vision-face-api-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/zhizhoualan/azure-ai-vision-face-api-mcp-server/actions/workflows/ci.yml)
+
 Introducing a Face Detection and Recognition MCP Server to allow the embedding of face attribute detection and face recognition during Agentic AI workflows.
 
 https://github.com/user-attachments/assets/dac4ef24-2043-47a2-8858-c965970254f9
@@ -83,11 +86,14 @@ pytest tests/test_prompt_live_*.py -v
 
 **Test Categories:**
 - `test_prompt_parser.py`: Unit tests for prompt parsing functions (19 tests)
+- `test_imports.py`: Import smoke tests for all modules (5 tests)
 - `test_prompt_live_*.py`: Integration tests that require Azure Face API credentials (8 tests)
 
 **Continuous Integration:**
 - The CI pipeline automatically runs all unit tests on Python 3.10, 3.11, and 3.12
 - Integration tests are skipped in CI unless Azure credentials are provided as secrets
+
+**For detailed testing documentation, see [TESTING.md](TESTING.md).**
 
 #### 9. (Optional) MCP HTTP Bridge (Node/TypeScript)
 
