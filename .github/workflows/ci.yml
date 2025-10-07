@@ -31,10 +31,17 @@ jobs:
       run: |
         python -m pytest tests/test_prompt_parser.py -v
 
-    - name: Run all tests (including skipped live tests)
+    - name: Run all tests (including live tests)
       run: |
         python -m pytest tests/ -v
-      continue-on-error: true
+      env:
+        AZURE_FACE_ENDPOINT: ${{ secrets.AZURE_FACE_ENDPOINT }}
+        AZURE_FACE_API_KEY: ${{ secrets.AZURE_FACE_API_KEY }}
+        AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+        AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+        AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+        AZURE_STORAGE_CONTAINER: ${{ secrets.AZURE_STORAGE_CONTAINER }}
+        AZURE_STORAGE_SAS_TOKEN: ${{ secrets.AZURE_STORAGE_SAS_TOKEN }}
 
   lint:
     runs-on: ubuntu-latest
