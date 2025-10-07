@@ -1,7 +1,10 @@
 import os
 import pathlib
+import sys
 import pytest
 from pprint import pprint
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
 from prompt_utils.prompt_dispatch import dispatch_prompt_compare
 
