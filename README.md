@@ -3,6 +3,17 @@ Introducing a Face Detection and Recognition MCP Server to allow the embedding o
 
 https://github.com/user-attachments/assets/dac4ef24-2043-47a2-8858-c965970254f9
 
+## Prerequisites
+- An [Azure subscription](https://azure.microsoft.com/free/) with access to the Cognitive Services Face API.
+- Python 3.11 or later with [`uv`](https://docs.astral.sh/uv/) available on your `PATH` for running the MCP server.
+- (Optional) An Azure OpenAI resource with a deployed GPT-4.1 model if you plan to use open-set attribute detection.
+- (Optional) Node.js 20 or later when running the HTTP bridge found in the [`bridge/`](bridge) directory.
+
+## Table of Contents
+- [Face Detection and Recognition API](#face-detection-and-recognition-api)
+- [Running MCP Server](#running-mcp-server)
+- [Example Prompts](#example-prompts)
+
 ## Face Detection and Recognition API
 For more information, visit [Face API](https://learn.microsoft.com/en-us/rest/api/face/operation-groups?view=rest-face-v1.2)
 
